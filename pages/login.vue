@@ -12,7 +12,7 @@ async function Do() {
   const data = await comp.logIn(email.value, pass.value);
   store.activate();
   store.name= data.user.email;
-  console.log(store.isActive,store.name);
+  // console.log(store.isActive,store.name);
   navigateTo('/blogs')
   // console.log(data.user.email);
 }
