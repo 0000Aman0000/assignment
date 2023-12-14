@@ -23,8 +23,12 @@ export default defineNuxtConfig({
 
   modules: [
     // ...
-    "@pinia/nuxt",
+    "@pinia/nuxt",'@nuxtjs/i18n'
   ],
+  i18n: {
+    vueI18n: 'plugins/i18n.config.ts' ,
+ }
+
 });
 
 //Steps Taken here to confiure the app

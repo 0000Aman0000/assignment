@@ -1,14 +1,17 @@
 <template>
-  <div>
-      <header>
-        <NavComponent/>
+  <div class="min-h-screen flex flex-col">
+    <header class="bg-gray-300 text-white ">
+      <NavComponent />
     </header>
+    <main class="flex-grow">
       <slot />
-    <footer class="fixed">
-        <h1>Footer</h1>
+    </main>
+    <footer class="bg-gray-300 text-Black py-4 text-center">
+      <h1 class="text-green-700">Footer</h1>
     </footer>
   </div>
 </template>
+
 
 <script>
 export default {
