@@ -8,31 +8,41 @@ const email = ref('');
 const pass = ref('')
 async function Do() {
   event.preventDefault();
-  console.log('Logged In')
   const data = await comp.logIn(email.value, pass.value);
+  console.log('Logged In')
   store.activate();
-  store.name= data.user.email;
+  store.name = data.user.email;
   // console.log(store.isActive,store.name);
   navigateTo('/blogs')
   // console.log(data.user.email);
 }
 </script>
 <template>
-  <div>
+  <div class="min-h-screen flex items-center justify-center  ">
+    <div class="max-w-md w-full bg-white p-8 rounded-md shadow-md">
+      <h2 class="text-2xl  font-extrabold text-gray-800 mb-6">{{ $t("Signin") }}</h2>
+      <form class="space-y-4">
+        <label for="email" class="block text-m font-medium float-left text-green-600">{{ $t("Email") }}:</label>
+        <input v-model="email" @input="email = $event.target.value" name="email" type="text"
+          class="mt-1 p-3 w-full rounded-md border border-gray-300">
 
+        <label for="password" class="block float-left text-green-600 text-m font-medium ">{{ $t("Password") }}:</label>
+        <input v-model="pass" @input="pass = $event.target.value" name="password" type="password"
+          class="mt-1 p-3 w-full rounded-md border border-gray-300">
 
-    <form>
-      <label for="email">Email / Username : </label><input v-model="email" @input="email = $event.target.value"
-        name="email" type="text"><br />
-      <label for="password">Password : </label><input v-model="pass" @input="pass = $event.target.value" name="password"
-        type="password"><br />
+        <button type="button" @click="Do"
+          class="bg-green-500 text-white p-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300">
+          {{ $t("Signin") }}
+        </button>
 
-      <button type="button" @click="Do">Sign In</button>
-      <p>
-        <NuxtLink to="/signup">Don't have an account</NuxtLink>
-      </p>
-
-    </form>
+        <p class="text-center text-gray-600 text-sm">
+          Don't have an account?
+          <NuxtLink to="/signup" class="text-green-500 hover:underline">{{ $t("Signup") }}</NuxtLink>
+        </p>
+      </form>
+    </div>
   </div>
 </template>
+
+
 
