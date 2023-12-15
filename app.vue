@@ -20,7 +20,7 @@ onMounted(() => {
     }
     else {
       store.deActivate();
-      return navigateTo('/login')
+      return navigateTo('/')
     }
 
   })
